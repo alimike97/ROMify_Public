@@ -1,0 +1,71 @@
+# solver setup
+
+solver_mode 		    = Adaptive ROM
+rom_method  		    = Galerkin
+arom_method		        = Direct Adapt
+pod_energy  		    = 99.999
+hyper	    		    = True
+hyper_method		    = Gappy POD + Shock
+init_training_win 	    = 10
+unsampled_update_freq 	= 10
+fom_results_dir		    = ""
+
+# time discretization
+dt            = 7e-6
+num_steps     = 3500
+time_scheme   = Explicit - FD Euler
+
+
+# space discretization
+x_initial   = 0
+x_final     = 1
+cell_number = 500 
+
+# inlet BC
+rho_inlet        = extrapolate
+vel_inlet        = extrapolate
+press_inlet      = extrapolate
+temp_inlet       = extrapolate
+mass_frac_inlet  = extrapolate
+
+# outlet BC
+rho_outlet        = extrapolate
+vel_outlet        = extrapolate
+press_outlet      = extrapolate
+temp_outlet       = extrapolate
+mass_frac_outlet  = extrapolate
+
+# Initial Condition
+
+x_interval_ic = [[0,0.25],[0.25,0.75],[0.75,1]]
+press_ic      = [460.894,0.01,460.894]
+temp_ic       = [300,300,300]
+vel_ic        = [19.5975,0,-19.5975]
+rho_ic        = [5.99924,1,5.99924]
+mass_frac_ic  = [[1.0, 0.0],[1.0, 0.0],[1.0, 0.0]]
+
+# gas model
+gas_model       = Non-Reacting Air
+flux_scheme     = 1st Order Roe
+limiter	        = False
+limiter_method  = minmod 
+viscous	        = False
+
+# Visualization
+
+visual          = True
+variable1 	    = Density
+variable2 	    = Pressure
+variable3 	    = Velocity
+variable4 	    = None
+update_interval = 100
+plot_fom	    = False
+
+# Saving
+save_interval = 1
+
+# Profiling
+
+profiling	= False
+
+

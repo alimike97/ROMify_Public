@@ -1,0 +1,72 @@
+# solver setup
+
+solver_mode 		    = Adaptive ROM
+rom_method  		    = Galerkin
+arom_method		        = Direct Adapt
+pod_energy  		    = 99.999
+hyper	    		    = True
+hyper_method		    = QDEIM
+init_training_win 	    = 10
+unsampled_update_freq 	= 10
+fom_results_max_iter    = ""
+
+# time discretization
+dt            = 5e-5
+num_steps     = 3500
+time_scheme   = Explicit - FD Euler
+
+
+# space discretization
+x_initial   = 0
+x_final     = 1
+cell_number = 500 
+
+# inlet BC
+rho_inlet        = extrapolate
+vel_inlet        = extrapolate
+press_inlet      = extrapolate
+temp_inlet       = extrapolate
+mass_frac_inlet  = extrapolate
+
+# outlet BC
+rho_outlet        = extrapolate
+vel_outlet        = extrapolate
+press_outlet      = extrapolate
+temp_outlet       = extrapolate
+mass_frac_outlet  = extrapolate
+
+# Initial Condition
+
+x_interval_ic = [[0,0.48],[0.48,0.52],[0.52,1]]
+press_ic      = [0.0001,10,0.0001]
+temp_ic       = [300,300,300]
+vel_ic        = [0.01,0.01,0.01]
+rho_ic        = [1,1,1]
+mass_frac_ic  = [[1.0, 0.0],[1.0, 0.0],[1.0, 0.0]]
+
+# gas model
+gas_model       = Non-Reacting Air
+flux_scheme     = 1st Order Roe
+limiter	        = False
+limiter_method  = minmod
+viscous	        = True
+
+# Visualization
+
+visual          = True
+variable1 	    = Density
+variable2 	    = Pressure
+variable3 	    = Velocity
+variable4 	    = Temprature
+update_interval = 100
+plot_fom	    = False
+
+
+# Saving
+save_interval = 100
+
+# Profiling
+profiling	    = False
+
+
+
