@@ -3,13 +3,13 @@ solver_mode   = FOM
 
 # time discretization
 dt            = 1e-9
-num_steps     = 200000
+num_steps     = 20000
 time_scheme   = FDF
 
 # space discretization
 x_initial   = 0
-x_final     = 0.0288
-cell_number = 200
+x_final     = 0.288
+cell_number = 2000
 
 # inlet BC
 rho_inlet         = periodic
@@ -27,15 +27,15 @@ mass_frac_outlet  = periodic
 
 
 # Initial Condition
-ic_path        = C:\GIT_Fork\ROMify\examples\1D_RDE\IC_ramp_PR_2_200.npy
+ic_path        = C:\GIT_Fork\ROMify\examples\1D_RDE\IC_ramp_PR_2_2000_one_step_reaction.npy
 
 
 # gas model
-gas_model       = h2o2.yaml
-flux_scheme     = 2nd Order Roe
-limiter	        = False
+gas_model       = C:\GIT_Fork\ROMify\examples\1D_RDE\chem_one_step_reaction.inp
+flux_scheme     = 2nd Order Roe 
+limiter	        = True
 limiter_method  = minmod    
-viscous	        = False
+viscous	        = True
 numpy_vector    = True
 
 # Visualization
@@ -45,7 +45,7 @@ variable1 	    = Heat Release
 variable2 	    = Pressure
 variable3 	    = MF
 variable4 	    = Temprature
-update_interval = 100
+update_interval = 1000
 
 # Saving
 save_interval   = 100
@@ -55,12 +55,12 @@ profiling	    = False
 
 # Injection
 injection                 = True
-injection_state_dir       = C:\GIT_Fork\ROMify\examples\1D_RDE\Injection_Files\h2o2ar_phi_1_200ms_4atm_inject_prim_state.npy
+injection_state_dir       = C:\GIT_Fork\ROMify\examples\1D_RDE\Injection_Files\h2o2ar_phi_1_200ms_025atm_inject_prim_state.npy
 rde                       = True
-injector_face_area        = 0.5
+injector_face_area        = 0.05
 injector_area_ratio       = 0.8
 non_injection_portion     = 0.5
-non_injection_tail_portion= 0.3
+non_injection_tail_portion= 0.15
 
 # ROM Setup
 rom_method  		    = Galerkin
@@ -68,10 +68,10 @@ nl_rom_model            = rbf
 arom_method		        = direct
 pod_energy  		    = 99
 hyper	    		    = True
-hyper_method		    = QDEIM
-sampling_rate           = 10
+hyper_method		    = FGS
+sampling_rate           = 2
 init_training_win 	    = 10
-unsampled_update_freq 	= 10
+unsampled_update_freq 	= 15
 
 training_data_dir       = C:\GIT_Fork\ROMify\examples\1D_RDE\FOM_results_11cycles
 training_start_iter     = 50000
